@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PulseRoom</title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+
+  <body class="font-main" data-room_id="{{ room_id }}" data-u_name="{{ u_name }}">
+      <script src="/static/script.js" defer></script>
+
+    <div class="flex flex-col min-h-screen bg-module1 overflow-x-hidden">
+      <!-- HEADER -->
+      <header class="flex items-center justify-between border-b border-border1 px-10 py-3">
+        <div class="flex items-center gap-4 text-white">
+          <div class="size-4">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </div>
+          <h2 class="text-lg font-bold leading-tight tracking-tight">PulseRoom</h2>
+        </div>
+        <div class="flex flex-1 justify-end gap-8">
+          <div class="size-10 rounded-full bg-center bg-cover bg-no-repeat" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCPE9fh-MRpMKEpjGcZXDFJ2APOLLp-OBcQOJZrZ4VehlYXImXXsSmzlA6eXx_XfA-57ET8Ty0Nh6mYIk2SyiWQqI_vmomyodmBtsclhW-RbmRTI0-SE7tf2qmSXGC-7K5i_PngkNmoprt5ZtM8un9HGcHnYsUpNKqZUSDbFZNDa1sUrayzIMOfHxX33QhzAeQpWz8zGQj1Rhcu08yId6JR2Fa2Ze_bnFlllba7XxcN7vCbFUK9F8g47oQgqOAgq-VAHhnmwTysRzY');"></div>
+        </div>
+      </header>
+
+      <!-- MAIN CONTENT AREA -->
+      <div class="flex flex-1">
+        <!-- LEFT MODULE CONTROLS (Sidebar) -->
+        <aside class="w-80 p-4">
+          <div class="flex flex-col items-center gap-4">
+            <div class="w-32 h-32 rounded-full bg-center bg-cover bg-no-repeat" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWQc9J9HZYDIRG2BpUre_YdGByaMAVxJZN4IST0Qu-FskL3ZIl0hvuIIqXFttIxeM2_CeT3aU_qOKpcG4q1TAIOC6u4v2GLBRRBXvp53Ar3ONvyKqlUmOsfuVhF8h-KXhCntsg6o1WfFQoUHwPxiYSkZzgfESmZ3i1I_nabTLpa7G83-YUPMyiUQt3g-n0hJcAFS-vxed2qokQr5rK-w1Un3b0mhOPpceCgtakVw1_nSW7kK_cE0US7qRx_bdPT0UC43xcY_exb5o');"></div>
+            <p class="text-xl font-bold text-white text-center">Room Code:{{room_id}}</p>
+            <!-- Corrected: Display the actual host_name passed from the server -->
+            <p class="text-base text-muted text-center">Host: <span id="hostNameDisplay">{{host_name}}</span></p>
+          </div>
+
+          <h3 class="text-lg font-bold text-white pt-6 pb-2">Participants</h3>
+          <!-- Participants List - This will be dynamically updated by JavaScript -->
+          <div id="participantsList" class="space-y-3">
+            <!-- Example static participant cards (will be replaced by dynamic ones) -->
+            <div class="participant-card">
+              <div class="participant-info">
+                <div class="avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAqZk3ssvXHbzA7Qsv5Qufpz4TGB_Crei0MnPQMDgaFILJAaPPyVaaMHuH71HKGJMdziuCmvdaXe8xJIhcA5ZTs8_VhwUdPurwzxHxArfvHxngsC9dTD4SKDGEZSfkySh2wf3WqzXn1lID4uamV9oLJGd6Pi_yznBTicVKGW6-lhOsMqqN26OoIVkd8-zKSyfsft8V_cfIjxTJJHO53OwyhjIuzcUAfU_tZlAqmQte_q_xMBZ380sCXDJlXUxKTXngOdJp1yAECm98');"></div>
+                <div>
+                  <p class="text-white font-medium">Client 2</p>
+                  <p class="text-muted text-sm">Participant</p>
+                </div>
+              </div>
+              <button class="button">Remove</button>
+            </div>
+
+            <div class="participant-card">
+              <div class="participant-info">
+                <div class="avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAUercdCA_uDtbMyImZIEiayuy4zfu215ZU3s23iRWI_xrHuHuM7JkXjjs_-65Dz32yFawfai5cM-jbcZgs-e18xuQ0oHL1Q-YcmmjTOaHTzhVvDDI0IC4YMuPo5n-tSnlVvoDQz_yay6V2NvfgyCh2val8SQABhpmJsuHdrzwOJjWMfxM2pPJU65LIBvJro80Lpg96Wz2K54ngS_WAIO3z7Cg577aBqytYfsJMyKOyvZmGR6YukkZSo1v44NhBOJF9n1o3yp3JiqTbM');"></div>
+                <div>
+                  <p class="text-white font-medium">Client 3</p>
+                  <p class="text-muted text-sm">Participant</p>
+                </div>
+              </div>
+              <button class="button">Remove</button>
+            </div>
+          </div>
+
+          <!-- Host Controls -->
+          <div class="space-y-2 pt-6">
+            <button class="button w-full">Mute All</button>
+            <button class="button w-full">Unmute All</button>
+            <div class="flex items-center justify-between pt-4">
+              <p class="text-white">Lock Room</p>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" />
+                <div class="w-11 h-6 bg-[#264532] peer-checked:bg-[#39e079] rounded-full peer"></div>
+                <div class="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition peer-checked:translate-x-full"></div>
+              </label>
+            </div>
+            <button class="button w-full">Start Recording</button>
+            <button class="button w-full">Stop Recording</button>
+            <button id="leaveButton" class="button bg-[#39e079] text-[#122118] font-bold w-full">Leave</button>
+          </div>
+        </aside>
+
+        <!-- RIGHT MODULE VIEW (Chat Area) -->
+        <main class="flex-1 px-6 py-5 bg-module2 flex flex-col">
+          <h2 class="text-white text-2xl font-bold text-center pb-3">{{u_name}}'s Room: Idle</h2>
+
+          <!-- Chat messages display area -->
+          <div id="messages" class="flex-1 overflow-y-auto p-4 bg-gray-800 rounded-lg mb-4">
+            <!-- Messages will be appended here by script.js -->
+          </div>
+          <!-- Chat input and send button -->
+          <div class="flex gap-2">
+            <input type="text" id="messageInput" placeholder="Type your message..." class="flex-1 p-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-blue-500">
+            <button id="sendButton" class="px-4 py-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors">Send</button>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

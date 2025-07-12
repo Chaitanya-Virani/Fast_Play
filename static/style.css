@@ -1,0 +1,131 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans:wght@400;500;700;900&display=swap');
+
+body {
+  font-family: "JetBrains Mono", "Space Grotesk", "Noto Sans", sans-serif;
+}
+
+.font-main {
+  font-family: "JetBrains Mono", "Space Grotesk", "Noto Sans", sans-serif;
+}
+
+
+.bg-module1 {
+  background-color: #122118;
+}
+
+.bg-module2 {
+  background-color: #181711;
+}
+
+.border-border1 {
+  border-color: #264532;
+}
+
+.text-muted {
+  color: #96c5a8;
+}
+
+.participant-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #122118;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  min-height: 72px;
+  margin-bottom: 0.5rem;
+}
+
+.participant-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  height: 56px;
+  width: 56px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 9999px;
+}
+
+.button,
+.button-wide {
+  background-color: #264532;
+  color: white;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  width: 100%;
+  text-align: center;
+}
+
+.button-wide {
+  height: 2.5rem;
+  max-width: 480px;
+}
+
+.toggle-switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 31px;
+  width: 51px;
+  border-radius: 9999px;
+  background-color: #264532;
+  padding: 0.125rem;
+  justify-content: flex-start;
+  transition: background-color 0.3s;
+}
+
+.toggle-switch input:checked + div {
+  justify-content: flex-end;
+  background-color: #39e079;
+}
+
+.toggle-thumb {
+  height: 100%;
+  width: 27px;
+  background-color: white;
+  border-radius: 9999px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15), 0 3px 1px rgba(0,0,0,0.06);
+}
+
+.end-meeting {
+  background-color: #39e079;
+  color: #122118;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border-radius: 9999px;
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 2.5rem;
+  background-color: #0b1b11;
+  border-bottom: 1px solid #264532;
+  color: white;
+}
+
+.header-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.avatar-large {
+  min-height: 128px;
+  width: 128px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 9999px;
+  margin-bottom: 0.5rem;
+}
